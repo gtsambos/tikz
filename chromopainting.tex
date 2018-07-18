@@ -1,0 +1,17 @@
+\documentclass{article} % say
+\usepackage{tikz}
+
+
+\begin{document}
+\tikzset{pop1/.style={blue!30},pop2/.style={red!30}}
+
+An admixed chromosome
+\begin{tikzpicture}
+\fill[pop1] (-5,-0.8) rectangle (-2, 0.8);
+\fill[pop2] (-2,-0.8) rectangle (0,0.8);
+\fill[pop1] (-0,-0.8) rectangle (0.4, 0.8);
+\fill[pop2] (0.4, -0.8) rectangle (1.4, 0.8);
+\fill[pop1] (1.4, -0.8) rectangle (5, 0.8);
+\draw (-5,-0.8) rectangle (5, 0.8);
+\end{tikzpicture}.
+\end{document}
