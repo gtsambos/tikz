@@ -196,20 +196,6 @@
 
 \end{tikzpicture}  
 
-%\begin{tikzpicture}[bend angle=45]
-%\node[place] (waiting) {};
-%\node[place] (critical) [below=of waiting] {};
-%\node[place] (semaphore) [below=of critical] {};
-%\node[transition] (leave critical) [right=of critical] {}
-%edge [pre] (critical)
-%edge [post,bend right] node[auto,swap] {2} (waiting)
-%edge [pre, bend left] (semaphore);
-%\node[transition] (enter critical) [left=of critical] {}
-%edge [post] (critical)
-%edge [pre, bend left] (waiting)
-%edge [post,bend right] (semaphore);
-%\end{tikzpicture}
-
 \end{landscape}  
 
 
