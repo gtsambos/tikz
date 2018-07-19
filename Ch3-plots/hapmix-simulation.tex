@@ -1,6 +1,6 @@
 \documentclass{article} % say
 \usepackage{tikz}
-\usetikzlibrary{calc}
+\usetikzlibrary{calc,fit}
 
 
 \begin{document}
@@ -82,22 +82,45 @@
 
 
 % Arrows
+\node (bot) at (0,-5) {};
+\node (bota) at ($.4*(bot)$) {};
 
-\node (ref1mid1) at ($(s4a) + (pic) + (ref1) + (1.4,2)$) {};
-\node (adm1mid) at ($(s4) + (pic) + (3.5,0)$)  {};
-\draw[gray,->] (ref1mid1) to (adm1mid);
+\node (ref1a) at ($(s4a) + (pic) + (ref1)$) {};
+\node (ref1b) at ($(s4a) + (pic) + (ref1) + (rec2a)$) {};
+\node[fit=(ref1a) (ref1b)] (ref11) {};
+\node (adm1a) at ($(s4) + (pic)$) {};
+\node (adm1b) at ($(s4) + (pic) + (rec2)$) {};
+\node[fit=(adm1a) (adm1b)] (adm1) {};
+\draw[gray,->] (ref11) to (adm1);
 
-\node (ref1mid3) at ($(s4a) + (pic) + (ref1) + (5.6,2)$) {};
-\node(adm3mid) at ($(s4) + (pic) + (14,0)$)  {};
-\draw[gray,->] (ref1mid3) to (adm3mid) {};
+\node[] (ref1c) at ($(s4a) + (pic) + (ref1) + (rec3a) + (bota)$) {};
+\node[] (ref1d) at ($(s4a) + (pic) + (ref1) + (rec5a)$) {};
+\node[fit=(ref1c) (ref1d)] (ref13) {};
+\node[circle] (adm3a) at ($(s4) + (pic) + (rec3) + (bot)$) {};
+\node[circle] (adm3b) at ($(s4) + (pic) + (rec5)$) {};
+\node[fit=(adm3a) (adm3b)] (adm3) {};
+\draw[gray,->] (ref13.north) to (adm3.south) {};
 
-\node (ref2mid2) at ($(s4a) + (pic) + (ref2) +(3.6,2)$) {};
-\node (adm2mid) at ($(s4) + (pic) + (9.5,0)$)  {};
-\draw[gray,->] (ref2mid2) to (adm2mid) {};
+\node[] (ref2a) at ($(s4a) + (pic) + (ref2) + (rec2a) + (bota)$) {};
+\node[] (ref2b) at ($(s4a) + (pic) + (ref2) + (rec3a)$) {};
+\node[fit=(ref2a) (ref2b)] (ref22) {};
+\node[circle] (adm2a) at ($(s4) + (pic) + (rec2) + (bot)$) {};
+\node[circle] (adm2b) at ($(s4) + (pic) + (rec3)$) {};
+\node[fit=(adm2a) (adm2b)] (adm2) {};
+\draw[gray,->] (ref22.north) to (adm2.south) {};
 
-\node (ref2mid4) at ($(s4a) + (pic) + (ref2) +(7.4,2)$) {};
-\node (adm4mid) at ($(s4) + (pic) + (18.5,0)$) {};
-\draw[gray,->] (ref2mid4) to (adm4mid) {};
+\node[] (ref2c) at ($(s4a) + (pic) + (ref2) + (rec5a) + (bota)$) {};
+\node[] (ref2d) at ($(s4a) + (pic) + (ref2) + (chra)$) {};
+\node[fit=(ref2c) (ref2d)] (ref24) {};
+\node[circle] (adm4a) at ($(s4) + (pic) + (rec5) + (bot)$) {};
+\node[circle] (adm4b) at ($(s4) + (pic) + (chr)$) {};
+\node[fit=(adm4a) (adm4b)] (adm4) {};
+\draw[gray,->] (ref24.north) to (adm4.south) {};
+
+
+%\node (ref2mid4) at ($(s4a) + (pic) + (ref2) +(7.4,2)$) {};
+%\node (adm4mid) at ($(s4) + (pic) + (18.5,0)$) {};
+%\draw[gray,->] (ref2mid4) to (adm4mid) {};
 
 
 
@@ -108,7 +131,9 @@
 \draw ($(s3) + (lab) + .5*(chry)$) node[anchor=west] {{\bf 3. Generate ancestry blocks.}};
 \draw ($(s4) + (lab) + .5*(chry)$) node[anchor=west] {{\bf 4. Copy haplotype segments.}};
 
+
 \end{tikzpicture}  
+
 
 
 
