@@ -1,0 +1,92 @@
+\documentclass{article} % say
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+
+\begin{document}
+\tikzset{pop1/.style={blue!40},pop2/.style={red!40}}
+%\tikzstyle{pop2 place}= [place,draw=red,fill=red!40]
+
+\begin{tikzpicture}[scale=.25,auto]
+
+%%%% Nodes
+
+\node (s1) at (0,0)   {};
+\node (s2) at (0,-10)  {};
+\node (s3) at (0,-20) {};
+\node (s4) at (0,-30) {};
+
+\node (chr) at (20,5) {};
+\node (chry) at (0,5) {};
+
+\node (lab) at (0,0)   {};
+\node (pic) at (30, 0) {};
+
+
+%%%% Main chromosomes
+
+\draw ($(s1) + (pic)$) rectangle +(chr);
+\node (mid) at ($(s1) + (pic) + .5*(chr)$) {};
+\node [pop1] (pop1percent) [left of=mid, xshift=-5mm] [label=left:\textcolor{blue}{$65\%$}] {};
+\node [pop2] (pop2percent) [right of=mid, xshift=5mm] [label=right:\textcolor{red}{$35\%$}] {};
+
+\draw ($(s2) + (pic)$) rectangle +(chr);
+\draw ($(s2) + (pic)$) rectangle +(4,5);
+\draw ($(s2) + (pic)$) rectangle +(7,5);
+\draw ($(s2) + (pic)$) rectangle +(11,5);
+\draw ($(s2) + (pic)$) rectangle +(12,5);
+\draw ($(s2) + (pic)$) rectangle +(17,5);
+
+\fill[pop2, draw=black] ($(s3) + (pic)$) rectangle +(chr);
+\fill[pop1, draw=black] ($(s3) + (pic)$) rectangle +(17,5);
+\draw ($(s3) + (pic)$) rectangle +(12,5);
+\fill[pop2, draw=black] ($(s3) + (pic)$) rectangle +(11,5);
+\fill[pop1, draw=black] ($(s3) + (pic)$) rectangle +(7,5);
+\draw ($(s3) + (pic)$) rectangle +(4,5);
+
+\fill[pop2,draw=black] ($(s4) + (pic)$) rectangle +(chr);
+\fill[pop1,draw=black] ($(s4) + (pic)$) rectangle +(17,5);
+\fill[pop2,draw=black] ($(s4) + (pic)$) rectangle +(11,5);
+\fill[pop1,draw=black] ($(s4) + (pic)$) rectangle +(7,5);
+
+
+%%%% Extra lil chromosomes at bottom of step 4
+
+\node (s4a) at (0, -36) {};
+\node (chra) at (8,2) {}; 
+\node (ref1) at (0,0) {};
+\node (ref2) at (12,0) {};
+
+\fill[pop1,draw=black] ($(s4a) + (pic) + (ref1)$) rectangle +(chra);
+\fill[pop2,draw=black] ($(s4a) + (pic) + (ref2)$) rectangle +(chra);
+\path ($(s4a) + (pic) + (ref1)$) -- +(20,0) node[midway, below of=mid, yshift=5mm] {{\scriptsize reference haplotypes}};
+
+
+% Arrows
+
+\node (ref1mid) at ($(s4a) + (pic) + (ref1) + (4,2)$) {};
+\node (ref2mid) at ($(s4a) + (pic) + (ref2) + (4,2)$) {};
+
+\node(adm1mid) at ($(s4) + (pic) + (3.5,0)$)  {};
+\node(adm2mid) at ($(s4) + (pic) + (9.5,0)$)  {};
+\node(adm3mid) at ($(s4) + (pic) + (14,0)$)   {};
+\node(adm4mid) at ($(s4) + (pic) + (18.5,0)$) {};
+
+\draw[gray,->] (ref1mid) to (adm1mid);
+\draw[gray,->] (ref2mid) to (adm2mid);
+\draw[gray,->] (ref1mid) to (adm3mid);
+\draw[gray,->] (ref2mid) to (adm4mid);
+
+
+%%%% Text 
+
+\draw ($(s1) + (lab) + .5*(chry)$) node[anchor=west] {{\bf 1. Generate ancestry proportions.}};
+\draw ($(s2) + (lab) + .5*(chry)$) node[anchor=west] {{\bf 2. Generate recombination locations.}};
+\draw ($(s3) + (lab) + .5*(chry)$) node[anchor=west] {{\bf 3. Generate ancestry blocks.}};
+\draw ($(s4) + (lab) + .5*(chry)$) node[anchor=west] {{\bf 4. Copy haplotype segments.}};
+
+\end{tikzpicture}  
+
+
+
+\end{document}
