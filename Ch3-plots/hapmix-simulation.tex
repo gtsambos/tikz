@@ -30,42 +30,52 @@
 \node [pop1] (pop1percent) [left of=mid, xshift=-5mm] [label=left:\textcolor{blue}{$65\%$}] {};
 \node [pop2] (pop2percent) [right of=mid, xshift=5mm] [label=right:\textcolor{red}{$35\%$}] {};
 
+\node (rec1) at (4,5) {};
+\node (rec2) at (7,5) {};
+\node (rec3) at (11,5) {};
+\node (rec4) at (12,5) {};
+\node (rec5) at (17,5) {};
+
 \draw ($(s2) + (pic)$) rectangle +(chr);
-\draw ($(s2) + (pic)$) rectangle +(4,5);
-\draw ($(s2) + (pic)$) rectangle +(7,5);
-\draw ($(s2) + (pic)$) rectangle +(11,5);
-\draw ($(s2) + (pic)$) rectangle +(12,5);
-\draw ($(s2) + (pic)$) rectangle +(17,5);
+\draw ($(s2) + (pic)$) rectangle +(rec1);
+\draw ($(s2) + (pic)$) rectangle +(rec2);
+\draw ($(s2) + (pic)$) rectangle +(rec3);
+\draw ($(s2) + (pic)$) rectangle +(rec4);
+\draw ($(s2) + (pic)$) rectangle +(rec5);
 
 \fill[pop2, draw=black] ($(s3) + (pic)$) rectangle +(chr);
-\fill[pop1, draw=black] ($(s3) + (pic)$) rectangle +(17,5);
-\draw ($(s3) + (pic)$) rectangle +(12,5);
-\fill[pop2, draw=black] ($(s3) + (pic)$) rectangle +(11,5);
-\fill[pop1, draw=black] ($(s3) + (pic)$) rectangle +(7,5);
-\draw ($(s3) + (pic)$) rectangle +(4,5);
+\fill[pop1, draw=black] ($(s3) + (pic)$) rectangle +(rec5);
+\draw ($(s3) + (pic)$) rectangle +(rec4);
+\fill[pop2, draw=black] ($(s3) + (pic)$) rectangle +(rec3);
+\fill[pop1, draw=black] ($(s3) + (pic)$) rectangle +(rec2);
+\draw ($(s3) + (pic)$) rectangle +(rec1);
 
 \fill[pop2,draw=black] ($(s4) + (pic)$) rectangle +(chr);
-\fill[pop1,draw=black] ($(s4) + (pic)$) rectangle +(17,5);
-\fill[pop2,draw=black] ($(s4) + (pic)$) rectangle +(11,5);
-\fill[pop1,draw=black] ($(s4) + (pic)$) rectangle +(7,5);
+\fill[pop1,draw=black] ($(s4) + (pic)$) rectangle +(rec5);
+\fill[pop2,draw=black] ($(s4) + (pic)$) rectangle +(rec3);
+\fill[pop1,draw=black] ($(s4) + (pic)$) rectangle +(rec2);
 
 
 %%%% Extra lil chromosomes at bottom of step 4
 
 \node (s4a) at (0, -36) {};
-\node (chra) at (8,2) {}; 
+\node (chra) at ($.4*(chr)$) {}; 
 \node (ref1) at (0,0) {};
 \node (ref2) at (12,0) {};
 
+\node (rec2a) at ($.4*(rec2)$) {};
+\node (rec3a) at ($.4*(rec3)$) {};
+\node (rec5a) at ($.4*(rec5)$) {};
+
 \fill[pop1,draw=black] ($(s4a) + (pic) + (ref1)$) rectangle +(chra);
-\draw ($(s4a) + (pic) + (ref1)$) rectangle +(2.8,2);
-\draw ($(s4a) + (pic) + (ref1)$) rectangle +(4.4,2);
-\draw ($(s4a) + (pic) + (ref1)$) rectangle +(6.8,2);
+\draw ($(s4a) + (pic) + (ref1)$) rectangle +(rec2a);
+\draw ($(s4a) + (pic) + (ref1)$) rectangle +(rec3a);
+\draw ($(s4a) + (pic) + (ref1)$) rectangle +(rec5a);
 
 \fill[pop2,draw=black] ($(s4a) + (pic) + (ref2)$) rectangle +(chra);
-\draw ($(s4a) + (pic) + (ref2)$) rectangle +(2.8,2);
-\draw ($(s4a) + (pic) + (ref2)$) rectangle +(4.4,2);
-\draw ($(s4a) + (pic) + (ref2)$) rectangle +(6.8,2);
+\draw ($(s4a) + (pic) + (ref2)$) rectangle +(rec2a);
+\draw ($(s4a) + (pic) + (ref2)$) rectangle +(rec3a);
+\draw ($(s4a) + (pic) + (ref2)$) rectangle +(rec5a);
 
 \path ($(s4a) + (pic) + (ref1)$) -- +(20,0) node[midway, below of=mid, yshift=5mm] {{\scriptsize reference haplotypes}};
 
