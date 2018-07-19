@@ -58,24 +58,37 @@
 \node (ref2) at (12,0) {};
 
 \fill[pop1,draw=black] ($(s4a) + (pic) + (ref1)$) rectangle +(chra);
+\draw ($(s4a) + (pic) + (ref1)$) rectangle +(2.8,2);
+\draw ($(s4a) + (pic) + (ref1)$) rectangle +(4.4,2);
+\draw ($(s4a) + (pic) + (ref1)$) rectangle +(6.8,2);
+
 \fill[pop2,draw=black] ($(s4a) + (pic) + (ref2)$) rectangle +(chra);
+\draw ($(s4a) + (pic) + (ref2)$) rectangle +(2.8,2);
+\draw ($(s4a) + (pic) + (ref2)$) rectangle +(4.4,2);
+\draw ($(s4a) + (pic) + (ref2)$) rectangle +(6.8,2);
+
 \path ($(s4a) + (pic) + (ref1)$) -- +(20,0) node[midway, below of=mid, yshift=5mm] {{\scriptsize reference haplotypes}};
+
 
 
 % Arrows
 
-\node (ref1mid) at ($(s4a) + (pic) + (ref1) + (4,2)$) {};
-\node (ref2mid) at ($(s4a) + (pic) + (ref2) + (4,2)$) {};
+\node (ref1mid1) at ($(s4a) + (pic) + (ref1) + (1.4,2)$) {};
+\node (adm1mid) at ($(s4) + (pic) + (3.5,0)$)  {};
+\draw[gray,->] (ref1mid1) to (adm1mid);
 
-\node(adm1mid) at ($(s4) + (pic) + (3.5,0)$)  {};
-\node(adm2mid) at ($(s4) + (pic) + (9.5,0)$)  {};
-\node(adm3mid) at ($(s4) + (pic) + (14,0)$)   {};
-\node(adm4mid) at ($(s4) + (pic) + (18.5,0)$) {};
+\node (ref1mid3) at ($(s4a) + (pic) + (ref1) + (5.6,2)$) {};
+\node(adm3mid) at ($(s4) + (pic) + (14,0)$)  {};
+\draw[gray,->] (ref1mid3) to (adm3mid) {};
 
-\draw[gray,->] (ref1mid) to (adm1mid);
-\draw[gray,->] (ref2mid) to (adm2mid);
-\draw[gray,->] (ref1mid) to (adm3mid);
-\draw[gray,->] (ref2mid) to (adm4mid);
+\node (ref2mid2) at ($(s4a) + (pic) + (ref2) +(3.6,2)$) {};
+\node (adm2mid) at ($(s4) + (pic) + (9.5,0)$)  {};
+\draw[gray,->] (ref2mid2) to (adm2mid) {};
+
+\node (ref2mid4) at ($(s4a) + (pic) + (ref2) +(7.4,2)$) {};
+\node (adm4mid) at ($(s4) + (pic) + (18.5,0)$) {};
+\draw[gray,->] (ref2mid4) to (adm4mid) {};
+
 
 
 %%%% Text 
