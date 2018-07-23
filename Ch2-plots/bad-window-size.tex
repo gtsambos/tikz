@@ -1,0 +1,48 @@
+\documentclass{article} % say
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+
+\begin{document}
+\tikzset{pop1/.style={blue!40},pop2/.style={red!40}}
+    
+\begin{tikzpicture}[scale=1,auto]
+
+% The grid
+\draw[step=.5,gray,thin,dotted] (-0.9,-7.9) grid (11.9,2.4);
+
+% The ancestry blocks
+\node (block1) at (.5,-1) {};
+\node (block2) at ($(block1) + (4,0)$) {};
+\node (block3) at ($(block1) + (6,0)$) {};
+\node (blockz) at ($(block1) + (10,0)$) {};
+\node (blocky) at (0,2) {};
+
+\fill[pop2] (block1) rectangle ($(blockz) + (blocky)$);
+\fill[pop1] (block2) rectangle ($(block3) + (blocky)$);
+\draw (block1) rectangle ($(blockz) + (blocky)$);
+
+% The line
+\draw (0,0) to (11,0);
+\foreach \x in {1,2,...,10} \draw[fill=black] (\x,0) circle (0.1);
+
+% The arrow
+\node (focalsnp) at (5,0) {};
+\draw[gray,<-,ultra thick] (focalsnp.north) -- +(0,1.5);
+
+% The windows
+\node (win1) at ($(block1) + (0,-3)$) {};
+\node (win2) at ($(win1) + (2,-1.5)$) {};
+\node (win3) at ($(win1) + (4,-3)$) {};
+\node (winz) at (5,1) {};
+
+\fill[pop2] (win1) rectangle +(winz);
+\fill[pop2] (win2) rectangle +(winz);
+\fill[pop2] (win3) rectangle +(winz);
+
+
+\end{tikzpicture}  
+
+
+
+\end{document}
