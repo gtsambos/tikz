@@ -1,0 +1,68 @@
+\documentclass{article} % say
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows,decorations.pathmorphing,backgrounds,fit,positioning}
+
+
+\begin{document}
+%\tikzset{pop1/.style={blue!40},pop2/.style={red!40}}
+\centering
+    
+\begin{tikzpicture}[scale=.5]
+
+\tikzset{pop1/.style={fill=blue!40,draw=black!50,inner sep=0pt,minimum size=6mm,shape=rectangle},
+pop2/.style={fill=red!40,draw=black!50,inner sep=0pt,minimum size=6mm,shape=rectangle},
+allele/.style={fill=black!10,draw=black!50,inner sep=0pt,minimum size=6mm,shape=circle},
+state/.style={fill=violet!30,draw=black!50,inner sep=0pt,minimum size=6mm, shape=rectangle},
+transitions/.style={->,>=stealth,semithick},
+emissions/.style={->,>=stealth,semithick,decorate,decoration={snake,post length=1mm}}}
+
+% Ancestry states
+\node (s1) [state] {$S_0$};
+\node (s2) [right=of s1,state] {$S_1$};
+\node (s3) [right=of s2,state] {$S_2$};
+\node (s4) [right=of s3,state] {$S_3$};
+\node (s5) [right=of s4,state] {$S_4$};
+\node (s6) [right=of s5,state] {$S_5$};
+\node (s7) [right=of s6,state] {$S_6$};
+\node (s8) [right=of s7,state] {$S_7$};
+\node (s9) [right=of s8,state] {$S_8$};
+\node (s10) [right=of s9,state] {$S_9$};
+
+% Emitted alleles
+\node (h1) [below=of s1,allele] {$H_0$};
+\node (h2) [below=of s2,allele] {$H_1$};
+\node (h3) [below=of s3,allele] {$H_2$};
+\node (h4) [below=of s4,allele] {$H_3$};
+\node (h5) [below=of s5,allele] {$H_4$};
+\node (h6) [below=of s6,allele] {$H_5$};
+\node (h7) [below=of s7,allele] {$H_6$};
+\node (h8) [below=of s8,allele] {$H_7$};
+\node (h9) [below=of s9,allele] {$H_8$};
+\node (h10) [below=of s10,allele] {$H_9$};
+
+% Arrows connecting hidden states
+\node (s1.east) {} edge [transitions] (s2);
+\node (s2.east) {} edge [transitions] (s3);
+\node (s3.east) {} edge [transitions] (s4);
+\node (s4.east) {} edge [transitions] (s5);
+\node (s5.east) {} edge [transitions] (s6);
+\node (s6.east) {} edge [transitions] (s7);
+\node (s7.east) {} edge [transitions] (s8);
+\node (s8.east) {} edge [transitions] (s9);
+\node (s9.east) {} edge [transitions] (s10);
+
+% Arrows connecting states to emissions
+\node (s1.south) {} edge [emissions] (h1);
+\node (s2.south) {} edge [emissions] (h2);
+\node (s3.south) {} edge [emissions] (h3);
+\node (s4.south) {} edge [emissions] (h4);
+\node (s5.south) {} edge [emissions] (h5);
+\node (s6.south) {} edge [emissions] (h6);
+\node (s7.south) {} edge [emissions] (h7);
+\node (s8.south) {} edge [emissions] (h8);
+\node (s9.south) {} edge [emissions] (h9);
+\node (s10.south) {} edge [emissions] (h10);
+
+\end{tikzpicture}  
+
+\end{document}
