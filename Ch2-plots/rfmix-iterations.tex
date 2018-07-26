@@ -172,27 +172,27 @@
 
 %%%%% Labels
 
-\draw ($(s1) + (r1) + (c1) + (ref) + (-2,0)$) node[anchor=east] {{\bf Step 1. }};
-\draw ($(s2) + (r1) + (c1) + (ref) + (-2,0)$) node[anchor=east] {{\bf Step 2. }};
-\draw ($(s3) + (r1) + (c1) + (ref) + (-2,0)$) node[anchor=east] {{\bf Step 3. }};
+\draw ($(s1) + (r1) + (c1) + (ref) + (-2,0)$) node[anchor=east] {{\bf\texttt{Step 1.}}};
+\draw ($(s2) + (r1) + (c1) + (ref) + (-2,0)$) node[anchor=east] {\bf\texttt{Step 2.}};
+\draw ($(s3) + (r1) + (c1) + (ref) + (-2,0)$) node[anchor=east] {\bf\texttt{Step 3.}};
 
-\draw ($(s1) + (r1) + (c2) + (ref) + (0,4)$) node[anchor=south] {{\bf Training chromosomes}};
-\draw ($(s1) + (r1) + (c2) + (adm) + (0,4)$) node[anchor=south] {{\bf Test chromosomes}};
+\draw ($(s1) + (r1) + (c2) + (ref) + (0,4)$) node[anchor=south] {\texttt{Training chromosomes}};
+\draw ($(s1) + (r1) + (c2) + (adm) + (0,4)$) node[anchor=south] {\texttt{Test chromosomes}};
 
 
 %%%%% Arrows
 
 \node (start) at ($(s1) + (r2) + (c3) + (ref) + (10,0) + (1,0)$) {};
 \node (end)   at ($(s1) + (r2) + (c1) + (adm) + (-1,0)$) {};
-\draw[->,bend left=45] (start) to node {{\scriptsize inference}} node [swap] {} (end); 
+\draw[->,bend left=45] (start) to node {{\scriptsize \texttt{inference}}} node [swap] {} (end); 
 
 \node (start) at ($(s2) + (r2) + (c3) + (ref) + (10,0) + (1,0)$) {};
 \node (end)   at ($(s2) + (r2) + (c1) + (adm) + (-1,0)$) {};
-\draw[->,bend left=45] (start) to node {{\scriptsize inference}} node [swap] {} (end); 
+\draw[->,bend left=45] (start) to node {{\scriptsize \texttt{inference}}} node [swap] {} (end); 
 
 \node (start) at ($(s3) + (r2) + (c3) + (ref) + (10,0) + (1,0)$) {};
 \node (end)   at ($(s3) + (r2) + (c1) + (adm) + (-1,0)$) {};
-\draw[->,bend left=45] (start) to node {{\scriptsize inference}} node [swap] {} (end); 
+\draw[->,bend left=45] (start) to node {{\scriptsize \texttt{inference}}} node [swap] {} (end); 
 
 \end{tikzpicture}  
 
