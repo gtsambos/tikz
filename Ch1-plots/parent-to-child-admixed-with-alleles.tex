@@ -1,0 +1,123 @@
+\documentclass{article} % say
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+
+\begin{document}
+\tikzset{pop1/.style={blue!40},pop2/.style={red!40}}
+
+
+
+\begin{tikzpicture}[scale=0.4]
+
+% Letter nodes
+\node (midpt) at (0.5, 0.5) {};
+
+% Parent 1
+\node (p1a) at (0,6.5)    {};
+\node (p1b) at (0,5)      {};
+\fill[pop1] ($(p1a) + (0,0)$) rectangle ($(p1a) + (10,1)$);
+\fill[pop2] ($(p1a) + (3,0)$) rectangle ($(p1a) + (10,1)$);
+\fill[pop1] ($(p1b) + (0,0)$) rectangle ($(p1b) + (10,1)$);
+\fill[pop2] ($(p1b) + (2,0)$) rectangle ($(p1b) + (10,1)$);
+\fill[pop1] ($(p1b) + (5,0)$) rectangle ($(p1b) + (10,1)$);
+\draw ($(p1a) + (0,0)$) rectangle +(10,1);
+\draw ($(p1b) + (0,0)$) rectangle +(10,1);
+% Parent 1 - letters
+\node[color=white] (l0) at ($(p1a) + (midpt) + (0,0)$) {$\texttt{G}$};
+\node[color=white] (l1) at ($(p1a) + (midpt) + (1,0)$) {$\texttt{C}$};
+\node[color=white] (l2) at ($(p1a) + (midpt) + (2,0)$) {$\texttt{C}$};
+\node[color=white] (l3) at ($(p1a) + (midpt) + (3,0)$) {$\texttt{T}$};
+\node[color=white] (l4) at ($(p1a) + (midpt) + (4,0)$) {$\texttt{A}$};
+\node[color=white] (l5) at ($(p1a) + (midpt) + (5,0)$) {$\texttt{G}$};
+\node[color=white] (l6) at ($(p1a) + (midpt) + (6,0)$) {$\texttt{G}$};
+\node[color=white] (l7) at ($(p1a) + (midpt) + (7,0)$) {$\texttt{A}$};
+\node[color=white] (l8) at ($(p1a) + (midpt) + (8,0)$) {$\texttt{T}$};
+\node[color=white] (l9) at ($(p1a) + (midpt) + (9,0)$) {$\texttt{C}$};
+\node[color=white] (l0) at ($(p1b) + (midpt) + (0,0)$) {$\texttt{G}$};
+\node[color=white] (l1) at ($(p1b) + (midpt) + (1,0)$) {$\texttt{T}$};
+\node[color=white] (l2) at ($(p1b) + (midpt) + (2,0)$) {$\texttt{T}$};
+\node[color=white] (l3) at ($(p1b) + (midpt) + (3,0)$) {$\texttt{T}$};
+\node[color=white] (l4) at ($(p1b) + (midpt) + (4,0)$) {$\texttt{A}$};
+\node[color=white] (l5) at ($(p1b) + (midpt) + (5,0)$) {$\texttt{A}$};
+\node[color=white] (l6) at ($(p1b) + (midpt) + (6,0)$) {$\texttt{G}$};
+\node[color=white] (l7) at ($(p1b) + (midpt) + (7,0)$) {$\texttt{G}$};
+\node[color=white] (l8) at ($(p1b) + (midpt) + (8,0)$) {$\texttt{C}$};
+\node[color=white] (l9) at ($(p1b) + (midpt) + (9,0)$) {$\texttt{C}$};
+% Parent 1 - transcription line
+\draw[very thick,opacity=0.5] ($(p1b) + (-0.5,0.5)$) -- ($(p1b) + (0,0.5)$) -- +(1,0) -- ($(p1a) + (1,0.5)$) -- +(7,0) --  ($(p1b) + (8,0.5)$) -- ($(p1b) + (10.5,0.5)$);
+
+% Parent 2
+\node (p2a) at (0,1.5)    {};
+\node (p2b) at (0,0)      {};
+\fill[pop1] ($(p2a) + (0,0)$) rectangle ($(p2a) + (10,1)$);
+\fill[pop2] ($(p2b) + (0,0)$) rectangle ($(p2b) + (10,1)$);
+\fill[pop1] ($(p2b) + (4,0)$) rectangle ($(p2b) + (10,1)$);
+\fill[pop2] ($(p2b) + (6,0)$) rectangle ($(p2b) + (10,1)$);
+\fill[pop1] ($(p2b) + (9,0)$) rectangle ($(p2b) + (10,1)$);
+\draw ($(p2a) + (0,0)$) rectangle +(10,1);
+\draw ($(p2b) + (0,0)$) rectangle +(10,1);
+% Parent 2 - letters
+\node[color=white] (l0) at ($(p2a) + (midpt) + (0,0)$) {$\texttt{G}$};
+\node[color=white] (l1) at ($(p2a) + (midpt) + (1,0)$) {$\texttt{T}$};
+\node[color=white] (l2) at ($(p2a) + (midpt) + (2,0)$) {$\texttt{C}$};
+\node[color=white] (l3) at ($(p2a) + (midpt) + (3,0)$) {$\texttt{T}$};
+\node[color=white] (l4) at ($(p2a) + (midpt) + (4,0)$) {$\texttt{G}$};
+\node[color=white] (l5) at ($(p2a) + (midpt) + (5,0)$) {$\texttt{G}$};
+\node[color=white] (l6) at ($(p2a) + (midpt) + (6,0)$) {$\texttt{A}$};
+\node[color=white] (l7) at ($(p2a) + (midpt) + (7,0)$) {$\texttt{A}$};
+\node[color=white] (l8) at ($(p2a) + (midpt) + (8,0)$) {$\texttt{C}$};
+\node[color=white] (l9) at ($(p2a) + (midpt) + (9,0)$) {$\texttt{T}$};
+\node[color=white] (l0) at ($(p2b) + (midpt) + (0,0)$) {$\texttt{A}$};
+\node[color=white] (l1) at ($(p2b) + (midpt) + (1,0)$) {$\texttt{T}$};
+\node[color=white] (l2) at ($(p2b) + (midpt) + (2,0)$) {$\texttt{T}$};
+\node[color=white] (l3) at ($(p2b) + (midpt) + (3,0)$) {$\texttt{T}$};
+\node[color=white] (l4) at ($(p2b) + (midpt) + (4,0)$) {$\texttt{G}$};
+\node[color=white] (l5) at ($(p2b) + (midpt) + (5,0)$) {$\texttt{G}$};
+\node[color=white] (l6) at ($(p2b) + (midpt) + (6,0)$) {$\texttt{A}$};
+\node[color=white] (l7) at ($(p2b) + (midpt) + (7,0)$) {$\texttt{A}$};
+\node[color=white] (l8) at ($(p2b) + (midpt) + (8,0)$) {$\texttt{T}$};
+\node[color=white] (l9) at ($(p2b) + (midpt) + (9,0)$) {$\texttt{C}$};
+% Parent 2 - transription line
+\draw[very thick,opacity=0.5] ($(p2a) + (-0.5,0.5)$) -- ($(p2a) + (0,0.5)$) -- +(5,0) -- ($(p2b) + (5,0.5)$) -- +(5,0) -- ($(p2b) + (10.5,0.5)$);
+
+% Child
+\node (c1) at (13,4)        {};
+\node (c2) at (13,2.5)      {};
+\fill[pop1] ($(c1) + (0,0)$) rectangle ($(c1) + (10,1)$);
+\fill[pop2] ($(c1) + (3,0)$) rectangle ($(c1) + (10,1)$);
+\fill[pop1] ($(c1) + (8,0)$) rectangle ($(c1) + (10,1)$);
+\fill[pop1] ($(c2) + (0,0)$) rectangle ($(c2) + (10,1)$);
+\fill[pop2] ($(c2) + (6,0)$) rectangle ($(c2) + (10,1)$);
+\fill[pop1] ($(c2) + (9,0)$) rectangle ($(c2) + (10,1)$);
+\draw ($(c1) + (0,0)$) rectangle +(10,1);
+\draw ($(c2) + (0,0)$) rectangle +(10,1);
+% Haplotype 1 letters
+\node[color=white] (l0) at ($(c1) + (midpt) + (0,0)$) {$\texttt{G}$};
+\node[color=white] (l1) at ($(c1) + (midpt) + (1,0)$) {$\texttt{C}$};
+\node[color=white] (l2) at ($(c1) + (midpt) + (2,0)$) {$\texttt{C}$};
+\node[color=white] (l3) at ($(c1) + (midpt) + (3,0)$) {$\texttt{T}$};
+\node[color=white] (l4) at ($(c1) + (midpt) + (4,0)$) {$\texttt{A}$};
+\node[color=white] (l5) at ($(c1) + (midpt) + (5,0)$) {$\texttt{G}$};
+\node[color=white] (l6) at ($(c1) + (midpt) + (6,0)$) {$\texttt{G}$};
+\node[color=white] (l7) at ($(c1) + (midpt) + (7,0)$) {$\texttt{A}$};
+\node[color=white] (l8) at ($(c1) + (midpt) + (8,0)$) {$\texttt{C}$};
+\node[color=white] (l9) at ($(c1) + (midpt) + (9,0)$) {$\texttt{C}$};
+% Haplotype 2 letters
+\node[color=white] (l0) at ($(c2) + (midpt) + (0,0)$) {$\texttt{G}$};
+\node[color=white] (l1) at ($(c2) + (midpt) + (1,0)$) {$\texttt{T}$};
+\node[color=white] (l2) at ($(c2) + (midpt) + (2,0)$) {$\texttt{C}$};
+\node[color=white] (l3) at ($(c2) + (midpt) + (3,0)$) {$\texttt{T}$};
+\node[color=white] (l4) at ($(c2) + (midpt) + (4,0)$) {$\texttt{G}$};
+\node[color=white] (l5) at ($(c2) + (midpt) + (5,0)$) {$\texttt{G}$};
+\node[color=white] (l6) at ($(c2) + (midpt) + (6,0)$) {$\texttt{A}$};
+\node[color=white] (l7) at ($(c2) + (midpt) + (7,0)$) {$\texttt{A}$};
+\node[color=white] (l8) at ($(c2) + (midpt) + (8,0)$) {$\texttt{T}$};
+\node[color=white] (l9) at ($(c2) + (midpt) + (9,0)$) {$\texttt{C}$};
+% Arrows
+\draw[<-,thick] ($(c1) + (-0.5,0.5)$) -- +(135:2cm);
+\draw[<-,thick] ($(c2) + (-0.5,0.5)$) -- +(225:2cm);
+
+\end{tikzpicture}
+
+\end{document}

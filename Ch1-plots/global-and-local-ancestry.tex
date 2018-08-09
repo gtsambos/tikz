@@ -1,0 +1,97 @@
+\documentclass{article} % say
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+
+\begin{document}
+\tikzset{pop1/.style={blue!40},pop2/.style={red!40}}
+
+
+\begin{tikzpicture}[scale=0.5]
+
+% Nodes
+\node (glo) at (-12.5,0) {};
+\node (loc) at (2.5,0)  {};
+
+\node (rowheight) at (0,-3.5) {};
+\node (row1) at ($(0,0) + (rowheight)$)   {};
+\node (row2) at ($(0,0) + 2*(rowheight)$) {};
+\node (row3) at ($(0,0) + 3*(rowheight)$) {};
+
+\node (hapx) at (10,0) {};
+\node (hapy) at (0,2)  {};
+\node (hap)  at ($(hapx) + (hapy)$) {};
+
+
+% Haplotype 1
+\fill[pop1] ($(loc) + (row1)$) rectangle ($(loc) + (row1) + (hap)$) {};
+\fill[pop2] ($(loc) + (row1) + 0.3*(hapx)$) rectangle ($(loc) + (row1) + (hap)$) {};
+\fill[pop1] ($(loc) + (row1) + 0.5*(hapx)$) rectangle ($(loc) + (row1) + (hap)$) {};
+\fill[pop2] ($(loc) + (row1) + 0.8*(hapx)$) rectangle ($(loc) + (row1) + (hap)$) {};
+\draw ($(loc) + (row1)$) rectangle ($(loc) + (row1) + (hap)$) {};
+
+% Haplotype 2
+\fill[pop2] ($(loc) + (row2)$) rectangle ($(loc) + (row2) + (hap)$) {};
+\fill[pop1] ($(loc) + (row2) + 0.5*(hapx)$) rectangle ($(loc) + (row2) + (hap)$) {};
+\fill[pop2] ($(loc) + (row2) + 0.6*(hapx)$) rectangle ($(loc) + (row2) + (hap)$) {};
+\draw ($(loc) + (row2)$) rectangle ($(loc) + (row2) + (hap)$) {};
+
+% Haplotype 3
+\fill[pop1] ($(loc) + (row3)$) rectangle ($(loc) + (row3) + (hap)$) {};
+\fill[pop2] ($(loc) + (row3) + 0.3*(hapx)$) rectangle ($(loc) + (row3) + (hap)$) {};
+\fill[pop1] ($(loc) + (row3) + 0.5*(hapx)$) rectangle ($(loc) + (row3) + (hap)$) {};
+\fill[pop2] ($(loc) + (row3) + 0.7*(hapx)$) rectangle ($(loc) + (row3) + (hap)$) {};
+\fill[pop1] ($(loc) + (row3) + 0.8*(hapx)$) rectangle ($(loc) + (row3) + (hap)$) {};
+\draw ($(loc) + (row3)$) rectangle ($(loc) + (row3) + (hap)$) {};
+
+% Global ancestry labels
+\node (glo1) at ($(glo) + (row1) + 0.5*(hap)$)  {$\textcolor{blue}{60\%}\quad\textcolor{red}{40\%}$};
+\node (glo2) at ($(glo) + (row2) + 0.5*(hap)$)  {$\textcolor{blue}{10\%}\quad\textcolor{red}{90\%}$};
+\node (glo3) at ($(glo) + (row3) + 0.5*(hap)$)  {$\textcolor{blue}{70\%}\quad\textcolor{red}{30\%}$};
+
+% Allele labels
+\node (midpt) at ($0.05*(hapx) + 0.5*(hapy)$) {};
+
+\node (hap1-0) at ($(loc) + (row1)$)  {};
+\node (l) at ($(hap1-0) + (midpt)$) {$\textcolor{white}{\texttt{G}}$};
+\node (l) at ($(hap1-0) + (midpt) + 0.1*(hapx)$) {$\textcolor{white}{\texttt{A}}$};
+\node (l) at ($(hap1-0) + (midpt) + 0.2*(hapx)$) {$\textcolor{white}{\texttt{T}}$};
+\node (l) at ($(hap1-0) + (midpt) + 0.3*(hapx)$) {$\textcolor{white}{\texttt{T}}$};
+\node (l) at ($(hap1-0) + (midpt) + 0.4*(hapx)$) {$\textcolor{white}{\texttt{T}}$};
+\node (l) at ($(hap1-0) + (midpt) + 0.5*(hapx)$) {$\textcolor{white}{\texttt{G}}$};
+\node (l) at ($(hap1-0) + (midpt) + 0.6*(hapx)$) {$\textcolor{white}{\texttt{C}}$};
+\node (l) at ($(hap1-0) + (midpt) + 0.7*(hapx)$) {$\textcolor{white}{\texttt{C}}$};
+\node (l) at ($(hap1-0) + (midpt) + 0.8*(hapx)$) {$\textcolor{white}{\texttt{A}}$};
+\node (l) at ($(hap1-0) + (midpt) + 0.9*(hapx)$) {$\textcolor{white}{\texttt{A}}$};
+
+\node (hap2-0) at ($(loc) + (row2)$)  {};
+\node (l) at ($(hap2-0) + (midpt)$) {$\textcolor{white}{\texttt{A}}$};
+\node (l) at ($(hap2-0) + (midpt) + 0.1*(hapx)$) {$\textcolor{white}{\texttt{A}}$};
+\node (l) at ($(hap2-0) + (midpt) + 0.2*(hapx)$) {$\textcolor{white}{\texttt{C}}$};
+\node (l) at ($(hap2-0) + (midpt) + 0.3*(hapx)$) {$\textcolor{white}{\texttt{C}}$};
+\node (l) at ($(hap2-0) + (midpt) + 0.4*(hapx)$) {$\textcolor{white}{\texttt{T}}$};
+\node (l) at ($(hap2-0) + (midpt) + 0.5*(hapx)$) {$\textcolor{white}{\texttt{G}}$};
+\node (l) at ($(hap2-0) + (midpt) + 0.6*(hapx)$) {$\textcolor{white}{\texttt{T}}$};
+\node (l) at ($(hap2-0) + (midpt) + 0.7*(hapx)$) {$\textcolor{white}{\texttt{C}}$};
+\node (l) at ($(hap2-0) + (midpt) + 0.8*(hapx)$) {$\textcolor{white}{\texttt{G}}$};
+\node (l) at ($(hap2-0) + (midpt) + 0.9*(hapx)$) {$\textcolor{white}{\texttt{A}}$};
+
+\node (hap3-0) at ($(loc) + (row3)$)  {};
+\node (l) at ($(hap3-0) + (midpt)$) {$\textcolor{white}{\texttt{G}}$};
+\node (l) at ($(hap3-0) + (midpt) + 0.1*(hapx)$) {$\textcolor{white}{\texttt{A}}$};
+\node (l) at ($(hap3-0) + (midpt) + 0.2*(hapx)$) {$\textcolor{white}{\texttt{T}}$};
+\node (l) at ($(hap3-0) + (midpt) + 0.3*(hapx)$) {$\textcolor{white}{\texttt{C}}$};
+\node (l) at ($(hap3-0) + (midpt) + 0.4*(hapx)$) {$\textcolor{white}{\texttt{T}}$};
+\node (l) at ($(hap3-0) + (midpt) + 0.5*(hapx)$) {$\textcolor{white}{\texttt{A}}$};
+\node (l) at ($(hap3-0) + (midpt) + 0.6*(hapx)$) {$\textcolor{white}{\texttt{T}}$};
+\node (l) at ($(hap3-0) + (midpt) + 0.7*(hapx)$) {$\textcolor{white}{\texttt{T}}$};
+\node (l) at ($(hap3-0) + (midpt) + 0.8*(hapx)$) {$\textcolor{white}{\texttt{G}}$};
+\node (l) at ($(hap3-0) + (midpt) + 0.9*(hapx)$) {$\textcolor{white}{\texttt{G}}$};
+
+% Column labels
+\node (hapmidpt) at ($0.5*(hapx) + 0.5*(hapy)$) {};
+\node (lab1) at ($(glo) + (hapmidpt)$) {$\texttt{Global ancestry}$};
+\node (lab1) at ($(loc) + (hapmidpt)$) {$\texttt{Local ancestry}$};
+
+\end{tikzpicture}
+\end{document}
